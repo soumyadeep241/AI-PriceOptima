@@ -1,95 +1,191 @@
-# Optimal Price - Dynamic Pricing System
+# 🚀 PriceOptima – ML-Powered Dynamic Pricing System
 
-A complete machine learning-powered dynamic pricing solution with FastAPI backend and Vite + React dashboard.
 
-## 🚀 Project Overview
+An **end-to-end dynamic pricing system** that leverages **machine learning** to recommend optimal product prices based on demand patterns, inventory levels, competitor pricing, and seasonality.
 
-Optimal Price is an intelligent pricing recommendation system that uses machine learning to predict optimal product prices based on:
-- Cost price
-- Expected demand
-- Inventory levels
-- Competitor pricing
-- Seasonality
+Built with **FastAPI** for real-time inference and **React (Vite)** for interactive visualization.
+
+---
+
+## 📌 Problem Statement
+
+Static pricing fails to adapt to:
+
+* Fluctuating demand
+* Inventory constraints
+* Competitive market dynamics
+
+**PriceOptima** solves this by using **ML-driven demand prediction** combined with **pricing strategies** to maximize revenue while maintaining competitiveness.
+
+---
+
+## 🎯 Key Objectives
+
+* Predict future demand using ML models
+* Generate optimal prices dynamically
+* Compare **Static vs Rule-Based vs ML-Based pricing**
+* Achieve measurable **revenue uplift**
+* Deploy a production-ready pricing API
+
+---
+
+## 🧠 System Highlights
+
+✔ Full ML pipeline (EDA → Feature Engineering → Modeling → Deployment)
+✔ Rule-based pricing baseline
+✔ ML-based demand prediction (XGBoost / LightGBM)
+✔ Revenue backtesting & KPI evaluation
+✔ FastAPI backend with Swagger UI
+✔ React dashboard (Vite)
+✔ Modular & scalable architecture
+
+---
 
 ## 🛠️ Tech Stack
 
-| Component | Technology |
-|-----------|------------|
-| **ML Model** | XGBoost / Scikit-learn |
-| **Backend** | FastAPI + Uvicorn |
-| **Frontend** | Vite + React 18 |
-| **API Docs** | Swagger UI (auto-generated) |
+| Layer           | Technology        |
+| --------------- | ----------------- |
+| Language        | Python            |
+| Data Processing | Pandas, NumPy     |
+| ML Models       | XGBoost, LightGBM |
+| Backend         | FastAPI, Uvicorn  |
+| Frontend        | React 18 + Vite   |
+| Model Storage   | Joblib            |
+| API Docs        | Swagger UI        |
 
-## 📁 Project Structure
+---
+
+## 📁 Repository Structure
 
 ```
-Milestone6_FastAPI/
-├── app.py                 # FastAPI backend
-├── requirements.txt       # Python dependencies
+PriceOptima/
+├── app.py                      # FastAPI backend
+├── requirements.txt            # Python dependencies
 ├── model/
 │   ├── pricing_model.joblib    # Trained ML model
-│   └── feature_names.joblib    # Feature names
-├── dashboard/             # React.js frontend
+│   └── feature_names.joblib    # Feature list
+├── dashboard/                  # React frontend
 │   ├── public/
 │   └── src/
-│       ├── App.jsx        # Main component
-│       └── App.css        # Styling
+│       ├── App.jsx
+│       └── App.css
+├── PriceOptima_Dataset.csv
 └── README.md
 ```
 
+---
+
+## 🧩 Project Milestones
+
+### ✅ Milestone 1 – Requirements & Data Preparation
+
+* Defined business goals and KPIs
+* Collected and validated pricing dataset
+* Ensured data consistency and quality
+* Final KPI Summary:
+KPI	Value
+0	Revenue Lift (%)	6.06
+1	Profit Margin Improvement (%)	7.34
+2	Conversion Rate Change (%)	33.06
+3	Inventory Turnover Ratio	28.63
+
+### ✅ Milestone 2 – Exploratory Data Analysis (EDA)
+
+* Analyzed price, demand, revenue & inventory trends
+* Identified correlations and outliers
+* Generated business insights
+
+### ✅ Milestone 3 – Feature Engineering
+
+* Time-based features (day, month, weekend, season)
+* Lag & rolling demand features
+* Inventory and profit-related indicators
+* ML-ready dataset preparation
+
+### ✅ Milestone 4 – Rule-Based Pricing Engine
+
+* Designed pricing rules using:
+
+  * Time
+  * Demand
+  * Inventory
+* Compared static vs rule-based pricing
+* Achieved **positive revenue lift**
+* === Revenue Lift Result ===
+Static Revenue: 3834423
+Rule-Based Revenue: 3355508.97
+Revenue Lift: 12.49 %
+
+### ✅ Milestone 5 – ML-Based Dynamic Pricing
+
+* Trained XGBoost & LightGBM models
+* Used time-based train-test split
+* Simulated ML-driven pricing
+* Compared:
+
+  * Static
+  * Rule-Based
+  * ML-Based pricing strategies
+  * XGBoost RMSE: 11.630111390988345
+  * XGBoost MAE: 9.658175468444824
+  * Revenue Comparison
+  Pricing Strategy  Total Revenue
+0           Static     808283.000
+1       Rule-Based     708512.414
+2         ML-Based     841869.700
+
+
+### ✅ Milestone 6 – Deployment & Dashboard
+
+* Deployed model using FastAPI
+* Created `/predict-price` endpoint
+* Integrated React dashboard
+* Documented entire system
+
+---
+
 ## ⚡ Quick Start
 
-### 1. Backend Setup
+### 🔧 Backend Setup
 
 ```bash
-# Navigate to project folder
-cd Milestone6_FastAPI
+git clone https://github.com/your-username/PriceOptima.git
+cd PriceOptima
 
-# Create virtual environment (optional)
 python -m venv venv
-.\venv\Scripts\activate   # Windows
-# source venv/bin/activate  # Linux/Mac
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
 
-# Install dependencies
 pip install -r requirements.txt
-
-# Start the API server
 uvicorn app:app --reload
 ```
 
-The API will be available at `http://127.0.0.1:8000`
+📍 API runs at: `http://127.0.0.1:8000`
 
-### 2. Frontend Setup
+---
+
+### 🎨 Frontend Setup
 
 ```bash
-# Navigate to dashboard folder
 cd dashboard
-
-# Install dependencies
 npm install
-
-# Start Vite development server
 npm run dev
 ```
 
-The dashboard will open at `http://localhost:5173`
+📍 Dashboard runs at: `http://localhost:5173`
 
-> **Note**: All prices are displayed in Indian Rupees (₹ INR)
+---
 
 ## 📖 API Documentation
 
-Access the interactive API documentation at:
-- **Swagger UI**: http://127.0.0.1:8000/docs
-- **ReDoc**: http://127.0.0.1:8000/redoc
+* **Swagger UI** → `http://127.0.0.1:8000/docs`
+* **ReDoc** → `http://127.0.0.1:8000/redoc`
 
-### Endpoints
+---
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | Health check |
-| POST | `/predict-price` | Get pricing recommendation |
+## 🔌 API Usage
 
-### Sample Request
+### Request
 
 ```json
 {
@@ -101,29 +197,47 @@ Access the interactive API documentation at:
 }
 ```
 
-### Sample Response
+### Response
 
 ```json
 {
   "predicted_demand": 45.23,
-  "recommended_price": 308.00,
+  "recommended_price": 308.0,
   "pricing_strategy": "standard"
 }
 ```
 
-## 🎯 Pricing Strategies
+---
 
-| Strategy | Condition | Price Adjustment |
-|----------|-----------|------------------|
-| **Premium** | High demand (>50 units) | +10% markup |
-| **Standard** | Normal demand (20-50 units) | +5% markup |
-| **Discount** | Low demand (<20 units) | -5% discount |
+## 🎯 Pricing Logic
 
-## 📸 Screenshots
+| Strategy | Demand Condition      | Adjustment |
+| -------- | --------------------- | ---------- |
+| Premium  | High demand (>50)     | +10%       |
+| Standard | Medium demand (20–50) | +5%        |
+| Discount | Low demand (<20)      | −5%        |
 
-### Swagger UI
-![Swagger UI](./swagger_screenshot.png)
+---
 
-## 📝 License
+## 📊 KPIs Evaluated
 
-This project was created for educational purposes as part of Milestone 6.
+* 📈 Revenue Lift (%)
+* 💰 Profit Margin Improvement
+* 🔄 Conversion Rate (Proxy)
+* 📦 Inventory Turnover
+
+
+
+## 🔮 Future Scope
+
+* Real-time streaming data
+* Reinforcement Learning pricing
+* Docker & cloud deployment
+* Advanced KPI dashboards
+* Multi-store & multi-product pricing
+
+---
+
+## 🧑‍💻 Author
+
+**Soumyadeep Pal**
